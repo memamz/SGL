@@ -107,7 +107,7 @@ void Matrix4::setToIdentity()
 		}
 }
 
-void Matrix4::printMat() const
+void Matrix4::print() const
 {
 	for (int x = 0; x < 4; x++)
 		for (int y = 0; y < 4; y++)
@@ -119,4 +119,15 @@ void Matrix4::printMat() const
 		}
 
 	std::cout << std::endl;
+}
+
+Matrix4 operator* (const double d, const SGMath::Matrix4& m)
+{
+	Matrix4 m2;
+
+	for (int x = 0; x < 4; x++)
+		for (int y = 0; y < 4; y++)
+			m2(x, y) *= d;
+
+	return m2;
 }
