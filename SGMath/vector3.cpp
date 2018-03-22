@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2018 Mohamed Emam
+ * The code is licensed under the MIT License.
+ * You can check the file LICENSE for the full license.
+ */
+
 #include "vector3.h"
 #include "normal.h"
 #include "point3.h"

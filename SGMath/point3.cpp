@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2018 Mohamed Emam
+ * The code is licensed under the MIT License.
+ * You can check the file LICENSE for the full license.
+ */
+
 #include "point3.h"
 #include <math.h>
 #include <iostream>
@@ -44,5 +50,5 @@ Point3 operator* (const Matrix4& mat, const Point3& p)
 {
 	return Point3(mat(0, 0) * p.x + mat(0, 1) * p.y + mat(0, 2) * p.z + mat(0, 3),
 	              mat(1, 0) * p.x + mat(1, 1) * p.y + mat(1, 2) * p.z + mat(1, 3),
-                  mat(2, 0) * p.x + mat(2, 1) * p.y + mat(2, 2) * p.z + mat(2, 3));
+	              mat(2, 0) * p.x + mat(2, 1) * p.y + mat(2, 2) * p.z + mat(2, 3));
 }

@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2018 Mohamed Emam
+ * The code is licensed under the MIT License.
+ * You can check the file LICENSE for the full license.
+ *
+ * This is a class for a 3D Point, It can be used alongside Normal and Vector3.
+ * If you prefer a generic vector class for all positions and vectors check the vector4.h file.
+ */
+
 #ifndef SGLPOINT3_H
 #define SGLPOINT3_H
 
