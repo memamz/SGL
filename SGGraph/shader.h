@@ -31,6 +31,7 @@ namespace SGGraph
 		void setUniform1f(const std::string &name, float value);
 		void setUniform2f(const std::string &name, float v1, float v2);
 		void setUniform3f(const std::string &name, float v1, float v2, float v3);
+		void deleteShader();
 
 	private:
 		std::map<std::string, GLuint> locationsMap;

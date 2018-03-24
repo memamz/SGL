@@ -163,3 +163,10 @@ void Shader::checkCompileErrors(GLuint shader, std::string type)
 		}
 	}
 }
+
+void Shader::deleteShader()
+{
+	glUseProgram(0);
+	glDeleteProgram(id);
+	locationsMap.clear();
+}
