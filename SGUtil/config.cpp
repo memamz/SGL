@@ -8,7 +8,7 @@
 
 using namespace sgl;
 
-Config config;
+Config sgl::config;
 
 ConfigParam::ConfigParam()
 {
@@ -46,8 +46,10 @@ void Config::log(const std::string& fileName, bool print)
 			configlog << name << ": " << std::boolalpha << *v << "\n";
 		else if (char* v = std::any_cast<char>(&(it.second).val))
 			configlog << name << ": " << std::any_cast<char>((it.second).val) << "\n";
-		else if (std::string* v = std::any_cast<std::string>(&(it.second).val)) // Fix for string
+		else if (std::string* v = std::any_cast<std::string>(&(it.second).val))
 			configlog << name << ": " << *v << "\n";
+		else if (std::any_cast<const char*>(&(it.second).val))
+			configlog << name << ": " << std::string(std::any_cast<const char*>((it.second).val)) << "\n";
 		else
 			configlog << name << ": unrecognized value\n";
 

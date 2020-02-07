@@ -61,7 +61,7 @@ namespace sgl
 
 		// Register a Parameter
 		template <typename T>
-		void registerParam(const std::string& pid, T value, const std::string& paramName)
+		void registerParam(const std::string& pid, T value, const std::string& paramName = "")
 		{
 			ConfigParam param;
 			param.id = pid;
@@ -80,7 +80,7 @@ namespace sgl
 
 		// Adjust a Parameter
 		template <typename T>
-		void adjust(const std::string& pid, T val, const std::string& paramName)
+		void adjust(const std::string& pid, T val, const std::string& paramName = "")
 		{
 			if (configs.find(pid) != configs.end())
 			{
@@ -130,9 +130,8 @@ namespace sgl
 
 	};
 
+	extern Config config;
 }
-
-extern sgl::Config config;
 
 #endif
 

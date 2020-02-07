@@ -41,8 +41,8 @@ namespace sgl
 
 	};
 
+	extern LogFile lf;
 }
 
-extern sgl::LogFile lf;
 
 #endif

@@ -8,7 +8,7 @@
 
 using namespace sgl;
 
-LogFile lf;
+LogFile sgl::lf;
 
 LogFile::LogFile()
 {
