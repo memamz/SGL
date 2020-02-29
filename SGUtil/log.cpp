@@ -8,12 +8,22 @@
 
 using namespace sgl;
 
-Log sgl::lf;
+Log sgl::error(Log::ErrorLog, Log::Error, "ERROR");
+Log sgl::warn(Log::WarningLog, Log::Warning, "WARNING");
+Log sgl::info(Log::InfoLog, Log::Info, "INFO");
 
-Log::Log()
+std::ofstream Log::os;
+std::stringstream Log::ss;
+std::string Log::path = "";
+Log::Level Log::displayLevel = Other;
+
+Log::Log(Type t, Level lvl, const std::string& display)
 {
-	path = "";
 	printToConsole = true;
+	logType = t;
+	logLevel = lvl;
+	displayType = display;
+	newLine = true;
 }
 
 Log::~Log()
@@ -21,17 +31,17 @@ Log::~Log()
 
 }
 
-void Log::setLevel(Level lvl)
+void Log::setDisplayLevel(Level lvl)
 {
-	level = lvl;
+	displayLevel = lvl;
 }
 
-void Log::setPath(const std::string& p)
+void Log::setMainPath(const std::string& p)
 {
 	path = p;
 }
 
-void Log::save(const std::string& fileName)
+void Log::saveAll(const std::string& fileName)
 {
 	std::string f = path + fileName;
 	os.open(f);
@@ -40,24 +50,21 @@ void Log::save(const std::string& fileName)
 		os << ss.str();
 
 		os.close();
+		os.clear();
 	}
 	else std::cout << "Unable to open Log File";
 }
 
-void Log::error(const std::string& msg)
+void Log::saveLog(const std::string& fileName)
 {
-	if(level >= Error)
-		std::cout << "[ERROR]: " << msg << std::endl;
-}
+	std::string f = path + fileName;
+	os.open(f);
+	if (os.is_open())
+	{
+		os << logss.str();
 
-void Log::warn(const std::string& msg)
-{
-	if (level >= Warning)
-		std::cout << "[WARNING]: " << msg << std::endl;
-}
-
-void Log::info(const std::string& msg)
-{
-	if (level >= Info)
-		std::cout << "[INFO]: " << msg << std::endl;
+		os.close();
+		os.clear();
+	}
+	else std::cout << "Unable to open Log File";
 }

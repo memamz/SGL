@@ -15,7 +15,7 @@ ConfigParam::ConfigParam()
 
 }
 
-Config::Config()
+Config::Config() : configlog(Log::InfoLog, Log::Info, "CONFIG")
 {
 
 }
@@ -54,13 +54,12 @@ void Config::log(const std::string& fileName, bool print)
 			configlog << name << ": unrecognized value\n";
 
 	}
-	configlog.save(fileName);
+	configlog.saveLog(fileName);
 }
 
 void Config::setPath(const std::string& p)
 {
 	path = p;
-	configlog.setPath(p);
 }
 
 void Config::save(const std::string &fileName)
