@@ -16,22 +16,35 @@
 
 namespace sgl
 {
-	class LogFile
+	class Log
 	{
+	public:
+		enum Level : unsigned char
+		{
+			Error, Warning, Info
+		};
+
+	private:
 		std::ofstream os;
 		std::stringstream ss;
 		std::string path;
+		Level level = Info;
+
 	public:
 		bool printToConsole;
 
-		LogFile();
-		~LogFile();
+		Log();
+		~Log();
 
+		void setLevel(Level lvl);
 		void setPath(const std::string& p);
 		void save(const std::string& fileName = "default.log");
+		void error(const std::string& msg);
+		void warn(const std::string& msg);
+		void info(const std::string& msg);
 
 		template<class T>
-		LogFile& operator << (T const& val)
+		Log& operator << (T const& val)
 		{
 			ss << val;
 			if (printToConsole)
@@ -41,7 +54,7 @@ namespace sgl
 
 	};
 
-	extern LogFile lf;
+	extern Log lf;
 }
 
 

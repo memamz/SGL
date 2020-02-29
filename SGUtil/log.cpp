@@ -8,25 +8,30 @@
 
 using namespace sgl;
 
-LogFile sgl::lf;
+Log sgl::lf;
 
-LogFile::LogFile()
+Log::Log()
 {
 	path = "";
 	printToConsole = true;
 }
 
-LogFile::~LogFile()
+Log::~Log()
 {
 
 }
 
-void LogFile::setPath(const std::string& p)
+void Log::setLevel(Level lvl)
+{
+	level = lvl;
+}
+
+void Log::setPath(const std::string& p)
 {
 	path = p;
 }
 
-void LogFile::save(const std::string& fileName)
+void Log::save(const std::string& fileName)
 {
 	std::string f = path + fileName;
 	os.open(f);
@@ -37,4 +42,22 @@ void LogFile::save(const std::string& fileName)
 		os.close();
 	}
 	else std::cout << "Unable to open Log File";
+}
+
+void Log::error(const std::string& msg)
+{
+	if(level >= Error)
+		std::cout << "[ERROR]: " << msg << std::endl;
+}
+
+void Log::warn(const std::string& msg)
+{
+	if (level >= Warning)
+		std::cout << "[WARNING]: " << msg << std::endl;
+}
+
+void Log::info(const std::string& msg)
+{
+	if (level >= Info)
+		std::cout << "[INFO]: " << msg << std::endl;
 }

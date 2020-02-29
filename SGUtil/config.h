@@ -46,7 +46,7 @@ namespace sgl
 	{
 		std::unordered_map<std::string, ConfigParam> configs;
 		std::string path;
-		LogFile configlog;
+		Log configlog;
 
 	public:
 
@@ -120,12 +120,9 @@ namespace sgl
 
 		// Fix this
 		template <typename T>
-		T operator[] (const std::string& pid)
+		T& operator[] (const std::string& pid)
 		{
-			if (configs.find(pid) != configs.end())
-				return (configs[pid]).getValue();
-			configlog << "Parameter (" << pid << ") doesn't exist\n";
-			return false;
+			return get<T>(pid);
 		}
 
 	};
