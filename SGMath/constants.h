@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Mohamed Emam
+ * Copyright (c) 2018 Mohamed E. Saleh
  * The code is licensed under the MIT License.
  * You can check the file LICENSE for the full license.
  * 
@@ -9,7 +9,7 @@
 #ifndef SGLCONSTANTS_H
 #define SGLCONSTANTS_H
 
-namespace SGMath
+namespace sgl
 {
 	const double PI = 3.141592653589793238463;
 	const double TWO_PI = 6.283185307179586476925;

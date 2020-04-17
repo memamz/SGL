@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Mohamed Emam
+ * Copyright (c) 2018 Mohamed E. Saleh
  * The code is licensed under the MIT License.
  * You can check the file LICENSE for the full license.
  *

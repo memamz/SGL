@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Mohamed Emam
+ * Copyright (c) 2018 Mohamed E. Saleh
  * The code is licensed under the MIT License.
  * You can check the file LICENSE for the full license.
  */
@@ -7,7 +7,7 @@
 #include "glrenderer.h"
 #include <iostream>
 
-using namespace SGGraph;
+using namespace sgl;
 
 #define GLVERSIONMAJOR 3
 #define GLVERSIONMINOR 3
@@ -27,7 +27,7 @@ GLRenderer::~GLRenderer()
 	glfwTerminate();
 }
 
-GLRenderer& GLRenderer::createRenderer()
+GLRenderer& GLRenderer::getRenderer()
 {
 	static GLRenderer instance;
 	return instance;

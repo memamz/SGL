@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2018 Mohamed Emam
+ * Copyright (c) 2018 Mohamed E. Saleh
  * The code is licensed under the MIT License.
  * You can check the file LICENSE for the full license.
  */
 
 #include "shader.h"
 
-using namespace SGGraph;
+using namespace sgl;
 
 Shader::Shader(const std::string& vertPath, const std::string& fragPath, const std::string& geoPath)
 {

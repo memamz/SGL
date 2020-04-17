@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Mohamed Emam
+ * Copyright (c) 2018 Mohamed E. Saleh
  * The code is licensed under the MIT License.
  * You can check the file LICENSE for the full license.
  *
@@ -12,7 +12,7 @@
 
 #include "point3.h"
 
-namespace SGMath
+namespace sgl
 {
 	class Normal
 	{
@@ -45,22 +45,22 @@ namespace SGMath
 	};
 }
 
-inline SGMath::Normal SGMath::Normal::operator* (const double c) const { return SGMath::Normal(x * c, y * c, z * c); }
-inline SGMath::Normal SGMath::Normal::operator/ (const double c) const { return SGMath::Normal(x / c, y / c, z / c); }
-inline SGMath::Normal SGMath::Normal::operator+ (const SGMath::Normal& n) const { return SGMath::Normal(x + n.x, y + n.y, z + n.z); }
-inline SGMath::Normal SGMath::Normal::operator- (const SGMath::Normal& n) const { return SGMath::Vector3(x - n.x, y - n.y, z - n.z); }
-inline SGMath::Normal SGMath::Normal::operator- () const { return SGMath::Normal(-x, -y, -z); }
-inline SGMath::Normal& SGMath::Normal::operator+= (const SGMath::Normal& n) { x += n.x; y += n.y; z += n.z; return(*this); }
+inline sgl::Normal sgl::Normal::operator* (const double c) const { return sgl::Normal(x * c, y * c, z * c); }
+inline sgl::Normal sgl::Normal::operator/ (const double c) const { return sgl::Normal(x / c, y / c, z / c); }
+inline sgl::Normal sgl::Normal::operator+ (const sgl::Normal& n) const { return sgl::Normal(x + n.x, y + n.y, z + n.z); }
+inline sgl::Normal sgl::Normal::operator- (const sgl::Normal& n) const { return sgl::Vector3(x - n.x, y - n.y, z - n.z); }
+inline sgl::Normal sgl::Normal::operator- () const { return sgl::Normal(-x, -y, -z); }
+inline sgl::Normal& sgl::Normal::operator+= (const sgl::Normal& n) { x += n.x; y += n.y; z += n.z; return(*this); }
 
-inline double SGMath::Normal::dot(const SGMath::Vector3& v) const { return x*v.x + y*v.y + z*v.z; }
+inline double sgl::Normal::dot(const sgl::Vector3& v) const { return x*v.x + y*v.y + z*v.z; }
 
 // Non-member Functions
 // Scalar-normal multiplication
-inline SGMath::Normal operator* (const double a, const SGMath::Normal& n) { return SGMath::Normal(a * n.x, a * n.y, a * n.z); }
-inline SGMath::Vector3 operator+ (const SGMath::Vector3 v, const SGMath::Normal& n) { return SGMath::Vector3(v.x + n.x, v.y + n.y, v.z + n.z); }
-inline SGMath::Vector3 operator- (const SGMath::Vector3 v, const SGMath::Normal& n) { return SGMath::Vector3(v.x - n.x, v.y - n.y, v.z - n.z); }
-inline double dot(const SGMath::Vector3 v, const SGMath::Normal& n) { return v.x*n.x + v.y*n.y + v.z*n.z; }
+inline sgl::Normal operator* (const double a, const sgl::Normal& n) { return sgl::Normal(a * n.x, a * n.y, a * n.z); }
+inline sgl::Vector3 operator+ (const sgl::Vector3 v, const sgl::Normal& n) { return sgl::Vector3(v.x + n.x, v.y + n.y, v.z + n.z); }
+inline sgl::Vector3 operator- (const sgl::Vector3 v, const sgl::Normal& n) { return sgl::Vector3(v.x - n.x, v.y - n.y, v.z - n.z); }
+inline double dot(const sgl::Vector3 v, const sgl::Normal& n) { return v.x*n.x + v.y*n.y + v.z*n.z; }
 // Matrix 4D-vector 3D multiplication
-SGMath::Normal operator* (const SGMath::Matrix4& mat, const SGMath::Normal& n);
+sgl::Normal operator* (const sgl::Matrix4& mat, const sgl::Normal& n);
 
 #endif

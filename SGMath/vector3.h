@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Mohamed Emam
+ * Copyright (c) 2018 Mohamed E. Saleh
  * The code is licensed under the MIT License.
  * You can check the file LICENSE for the full license.
  *
@@ -12,7 +12,7 @@
 
 #include "matrix4.h"
 
-namespace SGMath
+namespace sgl
 {
 	class Normal;
 	class Point3;
@@ -41,6 +41,8 @@ namespace SGMath
 		Vector3 operator- (const Vector3& v) const;                 // Vector-vector subtraction
 		Vector3 operator- () const;                                 // Returns negated vector
 		Vector3& operator+= (const Vector3& v);                     // Add and assign
+		bool operator== (const Vector3& v) const;
+		bool operator!= (const Vector3& v) const;
 
 		// Functions
 		double magnitude() const;                                   // Get Magnitude
@@ -52,21 +54,22 @@ namespace SGMath
 	};
 }
 
-inline SGMath::Vector3 SGMath::Vector3::operator* (const double c) const { return SGMath::Vector3(x * c, y * c, z * c); }
-inline SGMath::Vector3 SGMath::Vector3::operator/ (const double c) const { return SGMath::Vector3(x / c, y / c, z / c); }
-inline SGMath::Vector3 SGMath::Vector3::operator+ (const SGMath::Vector3& v) const { return SGMath::Vector3(x + v.x, y + v.y, z + v.z); }
-inline SGMath::Vector3 SGMath::Vector3::operator- (const SGMath::Vector3& v) const { return SGMath::Vector3(x - v.x, y - v.y, z - v.z); }
-inline SGMath::Vector3 SGMath::Vector3::operator- () const { return SGMath::Vector3(-x, -y, -z); }
-inline SGMath::Vector3& SGMath::Vector3::operator+= (const SGMath::Vector3& v) { x += v.x; y += v.y; z += v.z; return(*this); }
+inline sgl::Vector3 sgl::Vector3::operator* (const double c) const { return sgl::Vector3(x * c, y * c, z * c); }
+inline sgl::Vector3 sgl::Vector3::operator/ (const double c) const { return sgl::Vector3(x / c, y / c, z / c); }
+inline sgl::Vector3 sgl::Vector3::operator+ (const sgl::Vector3& v) const { return sgl::Vector3(x + v.x, y + v.y, z + v.z); }
+inline sgl::Vector3 sgl::Vector3::operator- (const sgl::Vector3& v) const { return sgl::Vector3(x - v.x, y - v.y, z - v.z); }
+inline sgl::Vector3 sgl::Vector3::operator- () const { return sgl::Vector3(-x, -y, -z); }
+inline sgl::Vector3& sgl::Vector3::operator+= (const sgl::Vector3& v) { x += v.x; y += v.y; z += v.z; return(*this); }
+//std::ostream& operator<<(std::ostream& stream, const sgl::Vector3& v);
 
-inline double SGMath::Vector3::magsquared() const { return x*x + y*y + z*z; }
-inline double SGMath::Vector3::dot(const SGMath::Vector3& v) const { return x*v.x + y*v.y + z*v.z; }
-inline SGMath::Vector3 SGMath::Vector3::cross(const SGMath::Vector3& v) const { return SGMath::Vector3(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x); }
+inline double sgl::Vector3::magsquared() const { return x*x + y*y + z*z; }
+inline double sgl::Vector3::dot(const sgl::Vector3& v) const { return x*v.x + y*v.y + z*v.z; }
+inline sgl::Vector3 sgl::Vector3::cross(const sgl::Vector3& v) const { return sgl::Vector3(y * v.z - z * v.y, z * v.x - x * v.z, x * v.y - y * v.x); }
 
 // Non-member Functions
 // Scalar-vector multiplication
-inline SGMath::Vector3 operator* (const double a, const SGMath::Vector3& v) { return SGMath::Vector3(a * v.x, a * v.y, a * v.z); }
+inline sgl::Vector3 operator* (const double a, const sgl::Vector3& v) { return sgl::Vector3(a * v.x, a * v.y, a * v.z); }
 // Matrix 4D-vector 3D multiplication
-SGMath::Vector3 operator* (const SGMath::Matrix4& mat, const SGMath::Vector3& v);
+sgl::Vector3 operator* (const sgl::Matrix4& mat, const sgl::Vector3& v);
 
 #endif

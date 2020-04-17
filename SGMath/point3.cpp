@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Mohamed Emam
+ * Copyright (c) 2018 Mohamed E. Saleh
  * The code is licensed under the MIT License.
  * You can check the file LICENSE for the full license.
  */
@@ -8,7 +8,7 @@
 #include <math.h>
 #include <iostream>
 
-using namespace SGMath;
+using namespace sgl;
 
 Point3::Point3() : x(0.0), y(0.0), z(0.0) {}
 

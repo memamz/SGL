@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2018 Mohamed Emam
+ * Copyright (c) 2018 Mohamed E. Saleh
  * The code is licensed under the MIT License.
  * You can check the file LICENSE for the full license.
  *
  * A class for creating and managing shaders.
  */
 
-#ifndef SHADER_H
-#define SHADER_H
+#ifndef SGLSHADER_H
+#define SGLSHADER_H
 
 #include <glad\glad.h>
 #include <string>
@@ -16,7 +16,7 @@
 #include <iostream>
 #include <map>
 
-namespace SGGraph
+namespace sgl
 {
 	class Shader
 	{

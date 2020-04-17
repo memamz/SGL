@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2018 Mohamed Emam
+ * Copyright (c) 2018 Mohamed E. Saleh
  * The code is licensed under the MIT License.
  * You can check the file LICENSE for the full license.
  */
 
 #include "point2.h"
 
-using namespace SGMath;
+using namespace sgl;
 
 Point2::Point2() : x(0.0), y(0.0) { }
 

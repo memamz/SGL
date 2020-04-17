@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Mohamed Emam
+ * Copyright (c) 2018 Mohamed E. Saleh
  * The code is licensed under the MIT License.
  * You can check the file LICENSE for the full license.
  *
@@ -9,7 +9,7 @@
 #ifndef SGLMATRIX4_H
 #define SGLMATRIX4_H
 
-namespace SGMath
+namespace sgl
 {
 	class Matrix4
 	{
@@ -40,11 +40,11 @@ namespace SGMath
 
 }
 
-inline double& SGMath::Matrix4::operator() (int x, int y) { return m[x][y]; };
-inline double SGMath::Matrix4::operator() (int x, int y) const { return m[x][y]; };
+inline double& sgl::Matrix4::operator() (int x, int y) { return m[x][y]; };
+inline double sgl::Matrix4::operator() (int x, int y) const { return m[x][y]; };
 
 // Non-member Functions
 // Scalar-matrix4 multiplication
-SGMath::Matrix4 operator* (const double d, const SGMath::Matrix4& m);
+sgl::Matrix4 operator* (const double d, const sgl::Matrix4& m);
 
 #endif

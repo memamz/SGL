@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Mohamed Emam
+ * Copyright (c) 2018 Mohamed E. Saleh
  * The code is licensed under the MIT License.
  * You can check the file LICENSE for the full license.
  */
@@ -10,7 +10,7 @@
 #include <math.h>
 #include <iostream>
 
-using namespace SGMath;
+using namespace sgl;
 
 Vector3::Vector3() : x(0.0), y(0.0), z(0.0) {}
 
@@ -56,6 +56,16 @@ Vector3& Vector3::operator= (const Point3& p)
 	return (*this);
 }
 
+bool Vector3::operator== (const Vector3& v) const
+{
+	return x == v.x && y == v.y;
+}
+
+bool Vector3::operator!= (const Vector3& v) const
+{
+	return !(*this == v);
+}
+
 double Vector3::magnitude() const
 {
 	return sqrt(x * x + y * y + z * z);
@@ -81,3 +91,11 @@ Vector3 operator* (const Matrix4& mat, const Vector3& v)
 	               mat(1, 0) * v.x + mat(1, 1) * v.y + mat(1, 2) * v.z,
 	               mat(2, 0) * v.x + mat(2, 1) * v.y + mat(2, 2) * v.z);
 }
+
+/*
+std::ostream& operator<<(std::ostream& stream, const sgl::Vector3& v)
+{
+	stream << v.x << ", " << v.y << ", " << v.z;
+	return stream;
+}
+*/

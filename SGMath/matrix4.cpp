@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Mohamed Emam
+ * Copyright (c) 2018 Mohamed E. Saleh
  * The code is licensed under the MIT License.
  * You can check the file LICENSE for the full license.
  */
@@ -7,7 +7,7 @@
 #include "matrix4.h"
 #include <iostream>
 
-using namespace SGMath;
+using namespace sgl;
 
 // Default constructor creates identity matrix
 Matrix4::Matrix4()
@@ -127,7 +127,7 @@ void Matrix4::print() const
 	std::cout << std::endl;
 }
 
-Matrix4 operator* (const double d, const SGMath::Matrix4& m)
+Matrix4 operator* (const double d, const sgl::Matrix4& m)
 {
 	Matrix4 m2;
 

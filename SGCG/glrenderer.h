@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Mohamed Emam
+ * Copyright (c) 2018 Mohamed E. Saleh
  * The code is licensed under the MIT License.
  * You can check the file LICENSE for the full license.
  *
@@ -9,11 +9,11 @@
 #ifndef SGLGLRENDERER_H
 #define SGLGLRENDERER_H
 
-#include <glad\glad.h>
-#include <GLFW\glfw3.h>
+#include <glad/glad.h>
+#include <glfw3.h>
 #include <vector>
 
-namespace SGGraph
+namespace sgl
 {
 	typedef GLFWwindow* GLWindow;
 
@@ -21,7 +21,7 @@ namespace SGGraph
 	{
 	public:		
 		// Lazy Renderer creation, destroyed at program termination. (thread safe in C++11)
-		static GLRenderer& createRenderer();
+		static GLRenderer& getRenderer();
 
 		// Makes sure to not get copies.
 		GLRenderer(const GLRenderer&) = delete;
@@ -46,6 +46,6 @@ namespace SGGraph
 	};
 }
 
-inline SGGraph::GLWindow SGGraph::GLRenderer::getCurrentWindow() { return currentWindow; }
+inline sgl::GLWindow sgl::GLRenderer::getCurrentWindow() { return currentWindow; }
 
 #endif

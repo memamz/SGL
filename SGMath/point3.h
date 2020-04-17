@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Mohamed Emam
+ * Copyright (c) 2018 Mohamed E. Saleh
  * The code is licensed under the MIT License.
  * You can check the file LICENSE for the full license.
  *
@@ -12,7 +12,7 @@
 
 #include "vector3.h"
 
-namespace SGMath
+namespace sgl
 {
 	class Point3
 	{
@@ -43,23 +43,23 @@ namespace SGMath
 	};
 }
 
-inline SGMath::Point3 SGMath::Point3::operator* (const double c) const { return SGMath::Point3(x * c, y * c, z * c); }
-inline SGMath::Point3 SGMath::Point3::operator/ (const double c) const { return SGMath::Point3(x / c, y / c, z / c); }
-inline SGMath::Point3 SGMath::Point3::operator+ (const SGMath::Vector3& v) const { return SGMath::Point3(x + v.x, y + v.y, z + v.z); }
-inline SGMath::Point3 SGMath::Point3::operator- (const SGMath::Vector3& v) const { return SGMath::Point3(x - v.x, y - v.y, z - v.z); }
-inline SGMath::Vector3 SGMath::Point3::operator- (const SGMath::Point3& p) const { return SGMath::Vector3(x - p.x, y - p.y, z - p.z); }
-inline SGMath::Point3 SGMath::Point3::operator- () const { return SGMath::Point3(-x, -y, -z); }
-inline SGMath::Point3& SGMath::Point3::operator+= (const SGMath::Vector3& v) { x += v.x; y += v.y; z += v.z; return(*this); }
+inline sgl::Point3 sgl::Point3::operator* (const double c) const { return sgl::Point3(x * c, y * c, z * c); }
+inline sgl::Point3 sgl::Point3::operator/ (const double c) const { return sgl::Point3(x / c, y / c, z / c); }
+inline sgl::Point3 sgl::Point3::operator+ (const sgl::Vector3& v) const { return sgl::Point3(x + v.x, y + v.y, z + v.z); }
+inline sgl::Point3 sgl::Point3::operator- (const sgl::Vector3& v) const { return sgl::Point3(x - v.x, y - v.y, z - v.z); }
+inline sgl::Vector3 sgl::Point3::operator- (const sgl::Point3& p) const { return sgl::Vector3(x - p.x, y - p.y, z - p.z); }
+inline sgl::Point3 sgl::Point3::operator- () const { return sgl::Point3(-x, -y, -z); }
+inline sgl::Point3& sgl::Point3::operator+= (const sgl::Vector3& v) { x += v.x; y += v.y; z += v.z; return(*this); }
 
-inline double SGMath::Point3::d2(const SGMath::Point3& p) const
+inline double sgl::Point3::d2(const sgl::Point3& p) const
 {
 	return (x - p.x) * (x - p.x) + (y - p.y) * (y - p.y) + (z - p.z) * (z - p.z);
 }
 
 // Non-member Functions
 // Scalar-point multiplication
-inline SGMath::Point3 operator* (const double a, const SGMath::Point3& p) { return SGMath::Point3(a * p.x, a * p.y, a * p.z); }
+inline sgl::Point3 operator* (const double a, const sgl::Point3& p) { return sgl::Point3(a * p.x, a * p.y, a * p.z); }
 // Matrix 4D-vector 3D multiplication
-SGMath::Point3 operator* (const SGMath::Matrix4& mat, const SGMath::Point3& p);
+sgl::Point3 operator* (const sgl::Matrix4& mat, const sgl::Point3& p);
 
 #endif

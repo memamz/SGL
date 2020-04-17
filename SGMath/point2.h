@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Mohamed Emam
+ * Copyright (c) 2018 Mohamed E. Saleh
  * The code is licensed under the MIT License.
  * You can check the file LICENSE for the full license.
  *
@@ -9,7 +9,7 @@
 #ifndef SGLPOINT2_H
 #define SGLPOINT2_H
 
-namespace SGMath
+namespace sgl
 {
 	class Point2
 	{
@@ -27,6 +27,6 @@ namespace SGMath
 	};
 }
 
-inline SGMath::Point2 SGMath::Point2::operator*(const double d) { return SGMath::Point2(x * d, y * d); }
+inline sgl::Point2 sgl::Point2::operator*(const double d) { return sgl::Point2(x * d, y * d); }
 
 #endif
